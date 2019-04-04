@@ -1,0 +1,15 @@
+{
+  "name": "n26_bobby_brown",
+  "version": "1.0.0",
+  "description": "",
+  "main": "first.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "n26": "^1.5.3"
+  }
+}
