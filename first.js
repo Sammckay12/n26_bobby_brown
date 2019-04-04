@@ -2,19 +2,18 @@
 const express = require('express')
 const app = express();
 
-// const n26_accounts = require('./n26test.js')
+// import { writeToFile } from './n26test.js'
+const writeToFile = require('./n26test.js')
 
 const N26 = require('n26');
 
 
 
 app.get('/', (req, res) => {
-  const myAccount = new N26('username@mail.com', 'password')
-  console.log(myAccount)
-
-  .then(account => account.transactions({text: 'Lafayette'}))
+  const myAccount = new N26('robholdenflag@gmail.com', '7v6GpL7ip8fjwUax2Q')
+  .then(account => account.transactions())
   .then(transactions => {
-    console.log(transactions)
+    writeToFile('./transactions.json', transactions)
   });
   res.send('Hello World!')
 });

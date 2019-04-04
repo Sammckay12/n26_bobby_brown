@@ -1,7 +1,10 @@
-const N26 = require('n26');
+const fs = require('fs');
 
-const myAccount = new N26('username@mail.com', 'password')
-  .then(account => account.transactions({text: 'Lafayette'}))
-  .then(transactions => {
-    console.log(transactions)
-  });
+module.exports = function (path, data) {
+  console.log("data", data.length);
+    console.log("in write to file");
+    fs.writeFile(path, JSON.stringify(data, null,4), (err) => {
+      if (err) throw err;
+      console.log(path, 'saved!');
+    })
+  }
