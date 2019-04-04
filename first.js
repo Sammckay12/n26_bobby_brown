@@ -1,3 +1,5 @@
+const dotenv = require('dotenv');
+dotenv.config();
 
 const express = require('express')
 const app = express();
@@ -10,7 +12,7 @@ const N26 = require('n26');
 
 
 app.get('/', (req, res) => {
-  const myAccount = new N26('robholdenflag@gmail.com', '7v6GpL7ip8fjwUax2Q')
+  const myAccount = new N26(process.env.n26_user, process.env.n26_pass)
   .then(account => account.transactions())
   .then(transactions => {
     writeToFile('./transactions.json', transactions)
